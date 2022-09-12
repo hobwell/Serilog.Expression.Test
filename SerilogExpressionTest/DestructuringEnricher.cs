@@ -6,9 +6,9 @@ using System.Diagnostics;
 
 namespace SerilogExpressionTest {
     /// <summary>
-    /// Basic enricher, not desctucturing when adding a property
+    /// Enricher usign the desctucturing flag when adding a property
     /// </summary>
-    public class Enricher : ILogEventEnricher {
+    public class DestructuringEnricher : ILogEventEnricher {
 
         private static Dictionary<string, string> QueryString {
             get {
@@ -20,7 +20,7 @@ namespace SerilogExpressionTest {
         }
 
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory) {
-            logEvent.AddPropertyIfAbsent(propertyFactory.CreateProperty("QueryString", QueryString));
+            logEvent.AddPropertyIfAbsent(propertyFactory.CreateProperty("QueryString", QueryString, destructureObjects: true));
 
             Debug.WriteLine("");
             Debug.WriteLine(JsonConvert.SerializeObject(logEvent));
