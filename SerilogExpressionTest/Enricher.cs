@@ -1,9 +1,6 @@
-﻿using Newtonsoft.Json;
-using Serilog.Core;
+﻿using Serilog.Core;
 using Serilog.Events;
-using Serilog.Templates;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace SerilogExpressionTest {
     /// <summary>
