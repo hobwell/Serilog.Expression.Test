@@ -21,10 +21,6 @@ namespace SerilogExpressionTest {
 
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory) {
             logEvent.AddPropertyIfAbsent(propertyFactory.CreateProperty("QueryString", QueryString, destructureObjects: true));
-
-            Debug.WriteLine("");
-            Debug.WriteLine(JsonConvert.SerializeObject(logEvent));
-            Debug.WriteLine("");
         }
     }
 }

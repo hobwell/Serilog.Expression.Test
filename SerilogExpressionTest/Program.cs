@@ -21,7 +21,7 @@ namespace SerilogExpressionTest {
             LoggerConfiguration config = new LoggerConfiguration()
             .Destructure.JsonNetTypes()
             .Enrich.With(new Enricher())
-            .WriteTo.Debug(new ExpressionTemplate("QueryString[?] like '%DROP%' ci: {#if QueryString[?] like '%DROP%' ci}True{#else}False{#end}\n\n"), restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Verbose, levelSwitch: null);
+            .WriteTo.Debug(new ExpressionTemplate("QueryString[?] like '%DROP%' ci: {#if QueryString[?] like '%DROP%' ci}True{#else}False{#end}\n\n{@p}\n\n"), restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Verbose, levelSwitch: null);
 
             Logger = config.CreateLogger();
         }
@@ -33,7 +33,7 @@ namespace SerilogExpressionTest {
             LoggerConfiguration config = new LoggerConfiguration()
             .Destructure.JsonNetTypes()
             .Enrich.With(new DestructuringEnricher())
-            .WriteTo.Debug(new ExpressionTemplate("QueryString[?] like '%DROP%' ci: {#if QueryString[?] like '%DROP%' ci}True{#else}False{#end}\n\n"), restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Verbose, levelSwitch: null);
+            .WriteTo.Debug(new ExpressionTemplate("QueryString[?] like '%DROP%' ci: {#if QueryString[?] like '%DROP%' ci}True{#else}False{#end}\n\n{@p}\n\n"), restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Verbose, levelSwitch: null);
 
             Logger = config.CreateLogger();
         }
